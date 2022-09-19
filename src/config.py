@@ -10,10 +10,10 @@ SQLALCHEMY_TRACK_MODIFICATIONS = False
 DB_CONTAINER = os.getenv("APPLICATION_DB_CONTAINER", "db")
 POSTGRES = {
     "user": os.getenv("APPLICATION_POSTGRES_USER", "postgres"),
-    "pw": os.getenv("APPLICATION_POSTGRES_PW", ""),
+    "pw": os.getenv("APPLICATION_POSTGRES_PW", "password"),
     "host": os.getenv("APPLICATION_POSTGRES_HOST", DB_CONTAINER),
     "port": os.getenv("APPLICATION_POSTGRES_PORT", 5432),
-    "db": os.getenv("APPLICATION_POSTGRES_DB", "postgres"),
+    "db": os.getenv("APPLICATION_POSTGRES_DB", "secretstoragepoc"),
 }
 DB_URI = "postgresql://%(user)s:%(pw)s@%(host)s:%(port)s/%(db)s" % POSTGRES
 

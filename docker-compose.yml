@@ -12,6 +12,7 @@ services:
       - db
     ports:
       - 3000:3000
+    #command: bash -c 'sleep 300 && python src/server.py'
     command: python src/server.py
 
   dbdata:
@@ -19,9 +20,12 @@ services:
     volumes:
       - /var/lib/postgresql/data
   db:
-    image: postgres:9.4
+    image: postgres_db
     volumes_from:
       - dbdata
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password 
 
   testserver:
     env_file: .env

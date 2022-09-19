@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 from flasgger import Swagger
 from flask import Flask
 from flask.blueprints import Blueprint
@@ -13,7 +15,7 @@ from models import db
 #   returns a boolean to filter in only desired views
 
 server = Flask(__name__)
-
+server.debug = True
 server.config["SWAGGER"] = {
     "swagger_version": "2.0",
     "title": "Application",
