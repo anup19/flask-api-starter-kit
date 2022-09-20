@@ -8,6 +8,8 @@ import config
 import routes
 from models import db
 
+from kms import KMSHandler
+
 # config your API specs
 # you can define multiple specs in the case your api has multiple versions
 # ommit configs to get the default (all views exposed in /spec url)
@@ -38,6 +40,9 @@ server.config["SQLALCHEMY_DATABASE_URI"] = config.DB_URI
 server.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = config.SQLALCHEMY_TRACK_MODIFICATIONS
 db.init_app(server)
 db.app = server
+
+kms_handler = KMSHandler()
+kms_handler.generate_kek()
 
 for blueprint in vars(routes).values():
     if isinstance(blueprint, Blueprint):

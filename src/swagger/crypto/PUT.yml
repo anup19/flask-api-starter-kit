@@ -1,0 +1,37 @@
+Create a crypto object based on the sent information
+---
+tags:
+  - crypto
+parameters:
+  - name: name
+    in: path
+    type: string
+    description: the name of the crypto secret
+  - name: body
+    in: body
+    schema:
+      type: object
+      properties:
+        gslb:
+          type: string
+          description: scope
+        version:
+          type: string
+          description: secret version (final or draft)
+        certificate:
+          type: string
+          description: certificate
+        key:
+          type: string
+          description: private key
+responses:
+  200:
+    description: The crypto secret was successfully saved
+    schema:
+      example:
+        crypto:
+          version: final
+          certificate: begin certificate
+          key: private key
+          gslb: global
+

@@ -1,0 +1,23 @@
+Return a crypto object key information based on the name
+---
+tags:
+  - crypto
+parameters:
+  - name: name
+    in: path
+    type: string
+    description: the name of the crypto secret
+  - name: gslb
+    in: path
+    type: string
+    description: the scope of the crypto secret
+responses:
+  200:
+    description: The crypto metadata information is successfully retrieved
+    schema:
+      example:
+        user:
+          name: help.target.com
+          gslb: global
+          type: final
+          certificate: xxxxx
