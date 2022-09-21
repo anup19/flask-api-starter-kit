@@ -42,7 +42,7 @@ db.init_app(server)
 db.app = server
 
 kms_handler = KMSHandler()
-kms_handler.generate_kek()
+kms_handler.setup()
 
 for blueprint in vars(routes).values():
     if isinstance(blueprint, Blueprint):

@@ -7,10 +7,6 @@ parameters:
     in: path
     type: string
     description: the name of the crypto secret
-  - name: gslb
-    in: path
-    type: string
-    description: the scope of the crypto secret
 responses:
   200:
     description: The crypto metadata information is successfully retrieved

@@ -16,3 +16,4 @@ setproctitle==1.1.10
 six==1.12.0
 markupsafe==2.0.1
 boto3==1.24.76
+cryptography==38.0.0

@@ -2,7 +2,6 @@
 
 from models import Crypto
 
-
 class CryptoRepository:
     """ The repository for the crypto model """
 
@@ -21,6 +20,7 @@ class CryptoRepository:
     @staticmethod
     def create(name, gslb, version, certificate, key):
         """ Create a new crypto """
-        crypto = Crypto(name=name, gslb=gslb, version=version, key=key, certificate=certificate)
+        from kms import KMSHandler
+        crypto = Crypto(name=name, gslb=gslb, version=version, key=KMSHandler().encrypt_crypto_secret(key), certificate=certificate)
 
         return crypto.save()
